@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+          <h1 class="text-center mt-5 mb-4" style="color: rgb(160, 7, 160);">Latest Posts</h1>
+          <div class="list-group">
+            
+              @for (blog of blogPosts; track blog.id) {
+              <div class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                      <h3 class="mb-1">{{blog.title}}</h3>
+                      <small class="text-muted">Published on {{blog.createdAt | date : 'dd-MMM-yyyy' }}</small>
+                  </div>
+                  <p class="mb-1">{{blog.content}}</p>
+                  <div class="d-flex justify-content-end">
+                      <button class="btn btn-primary me-2" (click)="editBlog(blog.id)">Edit Blog</button>
+
+                      <button class="btn btn-danger" (click)="deleteBlog(blog.id)" style="margin-left: 2px;">Delete Blog</button>
+                  </div>
+              </div>
+              }
+          </div>
+      </div>
+  </div>
+</div>
